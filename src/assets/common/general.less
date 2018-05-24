@@ -1,0 +1,254 @@
+@import '../less/helpers/mixins.less';
+@import '../less/helpers/variables.less';
+
+/***************************************************
+*               GENERAL
+***************************************************/
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body, html {
+  margin: 0;
+  background: @background-color;
+}
+
+.active {
+  color: @white-color !important;
+}
+
+.wrapper {
+  position: relative;
+  // padding-bottom: 70px;
+}
+
+.wrapper--header {
+  position: relative;
+  width: 88%;
+  margin: 0 auto;
+  padding-bottom: 70px;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+header {
+  padding-top: 105px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+ul {
+  padding: 0;
+}
+
+h1 {
+  position: relative;
+  margin-top: 12px;
+  text-align: center;
+  font-family: @roboto-bold;
+  font-size: @f-size28;
+  color: @white-color;
+  clear: both;
+
+  .responsive(1280px, {
+    margin-top: 0; font-size: @f-size32;
+  });
+
+  .responsive(1024px, { display: none; })
+}
+
+h2 {
+  margin-bottom: 0;
+  text-align: center;
+  font-family: @roboto-light;
+  font-size: @f-size19;
+  letter-spacing: 2px;
+  color: @nepal-color;
+
+  .responsive(1280px, { font-size: 24px; })
+}
+
+/***************************************************
+*               TOP-MENU
+***************************************************/
+
+.top-menu {
+  float: right;
+  margin: 0;
+
+  &__item {
+    position: relative;
+    float: left;
+    margin-right: 38px;
+    list-style: none;
+    text-decoration: none;
+    font-size: 18px;
+    color: @nepal-color;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover,
+    &:active {
+      color: @spray-color;
+
+      &:focus {
+        color: @white-color;
+      }
+    }
+
+    .responsive(1280px, { font-size: 20px; })
+  }
+}
+
+.clear-box {
+  clear: both;
+}
+
+/***************************************************
+*               ICON FONT
+***************************************************/
+
+.icon {
+  font-family: @icon;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &--global-list:before {
+    content: "\e90a";
+  }
+
+  &--statistic:before {
+    content: "\e90d";
+  }
+
+  &--settings:before {
+    content: "\e90c";
+  }
+
+  &--delete:before {
+    content: "\e914";
+  }
+
+  &--add:before {
+    content: "\e900";
+  }
+}
+
+/***************************************************
+*               BUTTONS
+***************************************************/
+
+.btn-cont {
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  margin-right: 15px;
+  font-family: @pt-sans-regular;
+  font-weight: 700;
+  font-size: @f-size16;
+  word-spacing: 2px;
+  color: @white-color;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--blue {
+    padding: 10px 25px;
+    background: @malibu-color;
+
+    .responsive(1024px, {
+      padding: 25px 90px;
+    });
+
+    &:hover,
+    &:focus {
+      background: @curious-blue-color;
+    }
+
+    &:active {
+      background: @pelorous-color;
+    }
+  }
+
+  &--green {
+    padding: 10px 45px;
+    background: @mountain-meadow-color;
+
+    .responsive(1024px, {
+      padding: 25px 115px;
+    });
+
+    &:hover,
+    &:focus {
+      background: @mountain-meadow-dark;
+    }
+
+    &:active {
+      background: @deep-sea-color;
+    }
+  }
+
+  &--red {
+    padding: 10px 45px;
+    background: @tomato-color;
+
+    &:hover,
+    &:focus {
+      background: @dark-coral-color;
+    }
+
+    &:active {
+      background: @mahogany-color;
+    }
+  }
+}
+
+.any-tasks-active {
+  display: block !important;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  padding: 10px 15px;
+  font-family: @roboto-bold;
+  font-size: @f-size14;
+  color: @background-color;
+  background: rgba(206, 222, 234, 0.9);
+  .border-radius(5px);
+}
+
+.main-wrapp {
+  width: 88%;
+  margin: 0 auto
+}
+
+.main-wrapp--global {
+  margin-bottom: 50px;
+}
+
+::-webkit-input-placeholder {color: @nepal-color;}
