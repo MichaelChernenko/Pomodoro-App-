@@ -7,3 +7,9 @@ node_js:
 branches:
   only:
     - master
+
+deploy:
+  provider: heroku
+  app: "pomodoro-workflow"
+  api_key:
+    secure: "e52a70a0-cbf8-4028-ac23-58b0b84f71ce"
