@@ -6,6 +6,7 @@ import DailyTask from '../components/dailyTask/dailyTask';
 import GlobalTask from '../components/globalTask/globalTask';
 import DoneTask from '../components/doneTask/doneTask';
 import Modal from '../components/modal/modal';
+import { withRouter } from 'react-router-dom'
 import { dataTask } from '../components/header/header';
 import { getTasks } from '../actions/getTasks';
 import { switchTaskList } from '../actions/switchTaskList';
@@ -25,7 +26,7 @@ class TaskListPage extends Component {
     }
 
     getTasks() {
-        this.db.getOnceData('user/tasks/').then(result => this.sortTasks(result.val()))
+        this.db.getOnceData(this.props.userID + '/tasks/').then(result => this.sortTasks(result.val()))
     }
 
     triggerDoneList(e) {
@@ -90,12 +91,14 @@ class TaskListPage extends Component {
 
         if (Object.keys(global).length === 0 && daily.length === 0) {
             empty = true;
+            this.props.onLoadPageCheck('empty')
         } else if (daily.length === 0 && done.length === 0) {
             emptyDone = true;
+            this.props.onLoadPageCheck('emptyDone')
         } else if (daily.length === 0) {
             emptyDaily = true;
+            this.props.onLoadPageCheck('emptyDaily')
         }
-
 
         let tasks = {
             daily: daily,
@@ -111,16 +114,19 @@ class TaskListPage extends Component {
             })
         }
 
+        console.log(tasks)
         this.props.getTasks(tasks)
+        console.log(this.props.dailyTasks)
     }
 
     setToDaily(e) {
         let updates = {};
-        updates['user/tasks/' + e.target.dataset.key + '/isDaily'] = true;
-        updates['user/tasks/' + e.target.dataset.key + '/deadline'] = 'today';
+        updates[this.props.userID + '/tasks/' + e.target.dataset.key + '/isDaily'] = true;
+        updates[this.props.userID + '/tasks/' + e.target.dataset.key + '/deadline'] = 'today';
 
         this.db.updateData(updates)
         this.getTasks()
+        this.props.onLoadPageCheck('')
     }
 
     onEditTaskClick(e) {
@@ -139,6 +145,10 @@ class TaskListPage extends Component {
         this.props.onModalEditClick('editMode', current)
     }
 
+    addModalCall() {
+        this.props.onModalAddClick('addMode');
+    }
+
     render() {
         return (
             <div>
@@ -146,7 +156,7 @@ class TaskListPage extends Component {
                 <Header nav={dataTask} />
                 <div className="wrapper sticky-h task-wrapp main-wrapp">
                     <div className="h-cont"><h1 className="task-list-add">Daily Task List</h1>
-                        <button className="add-task-btn"></button>
+                        <button onClick={this.addModalCall.bind(this)} className="add-task-btn"></button>
                     </div>
                     <section className="task-list clearfix" >
                         <ul onClick={this.triggerDoneList.bind(this)} className="task-list__filter task-list__filter--done clearfix">
@@ -172,7 +182,7 @@ class TaskListPage extends Component {
                         </div>
                     </section>
                 </div>
-                {this.props.triggerState === 'To Do' ? <DailyTask callEdit={this.onEditTaskClick.bind(this)} dailyTasks={this.props.dailyTasks} /> : <DoneTask dailyTasks={this.props.dailyTasks} />}
+                {this.props.triggerState === 'To Do' ? <DailyTask mode={this.props.dailyTaskMode} callEdit={this.onEditTaskClick.bind(this)} dailyTasks={this.props.dailyTasks} /> : <DoneTask dailyTasks={this.props.dailyTasks} />}
                 <div className="task-menu__bottom-line clearfix main-wrapp main-wrapp--global">
                     <a onClick={this.triggerGLobalList.bind(this)} className="gl-list-link" href="">Global List ></a>
                 </div>
@@ -182,12 +192,14 @@ class TaskListPage extends Component {
     }
 }
 
-export default connect(
+export default withRouter(connect(
     state => ({
-        dailyTasks: state.changeTasks.dailyTasks,
+        dailyTasks: state.changeTasks.tasks,
         triggerState: state.taskListPageTrigger.taskPageTrigger,
         modal: state.changeModalMode.modalMode,
-        globalListTrigger : state.globalListTrigger.globalListTrigger
+        globalListTrigger : state.globalListTrigger.globalListTrigger,
+        userID: state.authUser.userID,
+        dailyTaskMode: state.changeTasks.dailyTaskMode
     }),
     dispatch => ({
         getTasks: (tasks) => {
@@ -202,6 +214,12 @@ export default connect(
         },
         onGlobalClick: (value) => {
             dispatch(switchGlobalList(value));
+        },
+        onLoadPageCheck: (value) => {
+            dispatch({ type: 'ON_LOAD_PAGE', payload: value })
+        },
+        onModalAddClick: (value) => {
+            dispatch(changeModalMode(value));
         }
     })
-)(TaskListPage);
+)(TaskListPage));

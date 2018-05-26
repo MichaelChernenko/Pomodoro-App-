@@ -19,7 +19,7 @@ export const data = [
       {
         iconClass: 'settings',
         typeClass: 'sett',
-        hash: '/'
+        hash: '/settings'
       }
 ];
 
@@ -42,7 +42,7 @@ export const dataTask = [
       {
         iconClass: 'settings',
         typeClass: 'sett',
-        hash: '/'
+        hash: '/settings'
       }
     ];
 

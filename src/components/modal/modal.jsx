@@ -42,11 +42,11 @@ class Modal extends Component {
         let updates = {};
     
         for (let i = 0; i < keys.length; i++) {
-          updates['user/tasks/' + keys[i] + '/isRemoved'] = true;
+          updates[this.props.userId + '/tasks' + keys[i] + '/isRemoved'] = true;
         }
     
         db.updateData(updates);
-        db.getOnceData('user/tasks').then(result => this.props.action(result.val()))
+        db.getOnceData(this.props.userId + '/tasks').then(result => this.props.action(result.val()))
         this.onCloseClick();
       }
 
@@ -72,8 +72,9 @@ class Modal extends Component {
 
         let key = 0;
 
-        db.getOnceData('user/tasks').then(result => result.val())
+        db.getOnceData(this.props.userId + '/tasks').then(result => result.val())
             .then((result) => {
+                console.log('hello', this.props.userId)
                 if (result === null) {
                     key = 0;
                 } else {
@@ -98,19 +99,19 @@ class Modal extends Component {
                 if (this.props.mode === 'editMode') {
                     let updates = {};
 
-                    updates['user/tasks/' + this.props.targetTaskValue.key + '/heading'] = title;
-                    updates['user/tasks/' + this.props.targetTaskValue.key + '/taskText'] = descr;
-                    updates['user/tasks/' + this.props.targetTaskValue.key + '/deadline'] = deadline;
-                    updates['user/tasks/' + this.props.targetTaskValue.key + '/categoryName'] = category;
-                    updates['user/tasks/' + this.props.targetTaskValue.key + '/estimation'] = estimation;
-                    updates['user/tasks/' + this.props.targetTaskValue.key + '/priority'] = priority;
+                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/heading'] = title;
+                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/taskText'] = descr;
+                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/deadline'] = deadline;
+                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/categoryName'] = category;
+                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/estimation'] = estimation;
+                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/priority'] = priority;
 
                     db.updateData(updates);
                 } else {
-                    db.add(data, key + 1);
+                    db.add(data, key + 1, this.props.userId);
                 }
 
-                db.getOnceData('user/tasks').then(result => this.props.action(result.val()))
+                db.getOnceData(this.props.userId + '/tasks').then(result => this.props.action(result.val()))
             })
     }
     render() {
@@ -201,7 +202,8 @@ class Modal extends Component {
 export default connect(
     state => ({
         mode: state.changeModalMode.modalMode,
-        targetTaskValue: state.targetTask.targetTask
+        targetTaskValue: state.targetTask.targetTask,
+        userId: state.authUser.userID
     }),
     dispatch => ({
         onModalCloseClick: (value) => {

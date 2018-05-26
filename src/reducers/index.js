@@ -6,6 +6,8 @@ import globalListFilter from './globalListFilter';
 import changeModalMode from './changeModalMode';
 import targetTask from './targetTask';
 import globalListTrigger from './globalListTrigger';
+import authUser from './authUser';
+import authMode from './authMode';
 
 export default combineReducers({
     settingsPageTrigger,
@@ -14,5 +16,7 @@ export default combineReducers({
     globalListFilter,
     changeModalMode,
     targetTask,
-    globalListTrigger
+    globalListTrigger,
+    authUser,
+    authMode
 })

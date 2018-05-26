@@ -44,7 +44,7 @@ class TaskListPageRemove extends Component {
       }
 
     getTasks() {
-        this.db.getOnceData('user/tasks/').then(result => this.sortTasks(result.val()))
+        this.db.getOnceData(this.props.userID + '/tasks/').then(result => this.sortTasks(result.val()))
     }
 
     getRemoveItems() {
@@ -201,8 +201,8 @@ class TaskListPageRemove extends Component {
 
     setToDaily(e) {
         let updates = {};
-        updates['user/tasks/' + e.target.dataset.key + '/isDaily'] = true;
-        updates['user/tasks/' + e.target.dataset.key + '/deadline'] = 'today';
+        updates[this.props.userID + '/tasks/' + e.target.dataset.key + '/isDaily'] = true;
+        updates[this.props.userID + '/tasks/' + e.target.dataset.key + '/deadline'] = 'today';
 
         this.db.updateData(updates)
         this.getTasks()
@@ -282,10 +282,11 @@ class TaskListPageRemove extends Component {
 
 export default connect(
     state => ({
-        dailyTasks: state.changeTasks.dailyTasks,
+        dailyTasks: state.changeTasks.tasks,
         triggerState: state.taskListPageTrigger.taskPageTrigger,
         modal: state.changeModalMode.modalMode,
-        globalListTrigger: state.globalListTrigger.globalListTrigger
+        globalListTrigger: state.globalListTrigger.globalListTrigger,
+        userID: state.authUser.userID,
     }),
     dispatch => ({
         getTasks: (tasks) => {

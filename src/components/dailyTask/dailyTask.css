@@ -300,7 +300,7 @@ h2 {
 .h-cont {
   position: relative;
   width: 210px;
-  margin: 10px auto;
+  margin: 155px auto 0;
 }
 /***************************************************
 *           TASK-LIST FILTER
@@ -605,7 +605,7 @@ h2 {
 }
 .task-list {
   position: relative;
-  margin-top: 70px;
+  margin-top: 15px;
 }
 /**************************************************
 *               GLOBAL TASK LIST
@@ -1035,7 +1035,7 @@ h2 {
   text-decoration: line-through;
 }
 .first-visit__img {
-  margin: 120px auto 65px;
+  margin: 30px auto 35px !important;
   width: 180px;
   height: 170px;
 }

@@ -16,8 +16,8 @@ export default class DataService {
     this.db = app.database();
   }
 
-  add(data, key) {
-    this.db.ref().child('user/tasks/' + key).set(data);
+  add(data, key, user) {
+    this.db.ref().child(user + '/tasks/' + key).set(data);
     return this;
   }
 
@@ -27,5 +27,27 @@ export default class DataService {
 
   getOnceData(key) {
     return this.db.ref(key).once('value');
+  }
+
+  createUser(email, pass) {
+    return firebase.auth().createUserWithEmailAndPassword(email, pass)
+      .catch(error => {
+        return error;
+        console.log(error.message, error.code);
+      })
+  }
+
+  signIn(email, pass) {
+    return firebase.auth().signInWithEmailAndPassword(email, pass)
+      .catch(error => {
+        return error;
+        console.log(error.message, error.code);
+      })
+  }
+
+  observeUserChange(handler) {
+    return firebase.auth().onAuthStateChanged(user => {
+        handler(user)
+    })
   }
 }

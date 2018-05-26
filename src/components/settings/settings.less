@@ -43,7 +43,7 @@
 .choose-block {
   width: 800px;
   margin: 0 auto;
-  padding-top: 82px;
+  padding-top: 5%;
 
   &__field {
     display: inline-block;
@@ -74,6 +74,11 @@
     float: left;
     width: 40%;
     list-style: none;
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      margin-bottom: 30px;
+    }
 
     .responsive(1024px, { margin-left: 9%; });
 
@@ -184,7 +189,7 @@
 *****************************************************/
 
 .cycle {
-  max-width: 85%;
+  // max-width: 85%;
   margin: 0 auto;
 
   .responsive(1280px, { margin-top: 50px; });

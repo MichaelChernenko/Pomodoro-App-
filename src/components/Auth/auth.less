@@ -1,0 +1,102 @@
+@import '../../assets/less/helpers/mixins.less';
+@import '../../assets/less/helpers/variables.less';
+
+.auth-form {
+    margin: 0 auto;
+    padding: 30px;
+    width: 420px;
+    border: 1px solid @dark-grey-color;
+    border-radius: 10px;
+    font-family: @roboto-bold;
+    background: @silver-color;
+
+    input {
+        display: block;
+        margin: 10px auto;
+        padding-left: 10px;
+        width: 100%;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: @f-size19;
+        background-color: @white-color;
+    }
+
+    p {
+        margin: 5px 0;
+    }
+}
+
+.auth-error {
+    color: @mahogany-color;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 10px 0;
+    display: block;
+    margin: 10px auto;
+    border: 2px solid @deep-sea-color;
+    border-radius: 5px;
+    background-color: @deep-sea-color;
+    color: @white-color;
+    font-family: inherit;
+    font-size: @f-size19;
+    transition: .3s all;
+    cursor: pointer;
+
+    &:hover {
+        background-color: @white-color;
+        color: @deep-sea-color
+    }
+}
+
+.auth-choice {
+    margin: 5% auto 0;
+    padding: 10px 10px 8px;
+    width: 400px;
+
+    &__btn {
+        position: relative;
+        padding: 0 3%;
+        font-family: @roboto-bold;
+        font-size: @f-size19;
+        color: @white-color;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &--active {
+            color: @deep-sea-color;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 22px;
+                top: 29px;
+                display: block;
+                width: 10px;
+                height: 10px;
+                background-color: @silver-color;
+                transform: rotate(45deg)
+            }
+        }
+    }
+
+    span {
+        border-left: 2px solid @white-color;
+    }
+}
+
+.auth-logo {
+    width: 20%;
+    margin: 5% 39% 0;
+    display: block;
+}
+
+input {outline: none;}
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #fff !important; /* Цвет фона */
+}
