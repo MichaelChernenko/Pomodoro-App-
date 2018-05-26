@@ -42,7 +42,7 @@ class Modal extends Component {
         let updates = {};
     
         for (let i = 0; i < keys.length; i++) {
-          updates[this.props.userId + '/tasks' + keys[i] + '/isRemoved'] = true;
+          updates[this.props.userId + '/tasks/' + keys[i] + '/isRemoved'] = true;
         }
     
         db.updateData(updates);
@@ -99,12 +99,12 @@ class Modal extends Component {
                 if (this.props.mode === 'editMode') {
                     let updates = {};
 
-                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/heading'] = title;
-                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/taskText'] = descr;
-                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/deadline'] = deadline;
-                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/categoryName'] = category;
-                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/estimation'] = estimation;
-                    updates[this.props.userId + '/tasks' + this.props.targetTaskValue.key + '/priority'] = priority;
+                    updates[this.props.userId + '/tasks/' + this.props.targetTaskValue.key + '/heading'] = title;
+                    updates[this.props.userId + '/tasks/' + this.props.targetTaskValue.key + '/taskText'] = descr;
+                    updates[this.props.userId + '/tasks/' + this.props.targetTaskValue.key + '/deadline'] = deadline;
+                    updates[this.props.userId + '/tasks/' + this.props.targetTaskValue.key + '/categoryName'] = category;
+                    updates[this.props.userId + '/tasks/' + this.props.targetTaskValue.key + '/estimation'] = estimation;
+                    updates[this.props.userId + '/tasks/' + this.props.targetTaskValue.key + '/priority'] = priority;
 
                     db.updateData(updates);
                 } else {
