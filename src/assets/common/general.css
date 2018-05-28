@@ -141,6 +141,10 @@ h2 {
 .icon--add:before {
   content: "\e900";
 }
+.icon--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
+}
 /***************************************************
 *               BUTTONS
 ***************************************************/

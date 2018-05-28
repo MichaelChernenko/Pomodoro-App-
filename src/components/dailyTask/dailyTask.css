@@ -141,6 +141,10 @@ h2 {
 .icon--add:before {
   content: "\e900";
 }
+.icon--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
+}
 /***************************************************
 *               BUTTONS
 ***************************************************/
@@ -289,6 +293,10 @@ h2 {
 .add-task-btn:after--add:before {
   content: "\e900";
 }
+.add-task-btn:after--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
+}
 .add-task-btn:hover:after {
   cursor: pointer;
 }
@@ -383,6 +391,10 @@ h2 {
 }
 .task-menu__edit--ed:before--add:before {
   content: "\e900";
+}
+.task-menu__edit--ed:before--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
 }
 .task-menu__edit--ed:hover:before {
   color: #8da5b8;
@@ -511,6 +523,10 @@ h2 {
 }
 .task-menu__item .task-menu__pomodoro button:before--add:before {
   content: "\e900";
+}
+.task-menu__item .task-menu__pomodoro button:before--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
 }
 .task-menu__item .task-menu__pomodoro button {
   position: absolute;
@@ -655,6 +671,10 @@ h2 {
 }
 .task-menu__global .task-menu__edit--up:before--add:before {
   content: "\e900";
+}
+.task-menu__global .task-menu__edit--up:before--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
 }
 .task-menu__global .task-menu__edit--up:hover:before {
   color: #8da5b8;
@@ -951,6 +971,10 @@ h2 {
 .task-menu--remove .task-menu__date:after--add:before {
   content: "\e900";
 }
+.task-menu--remove .task-menu__date:after--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
+}
 .task-menu--remove .task-menu__date:hover:after {
   content: "\e906";
   cursor: pointer;
@@ -1105,6 +1129,10 @@ h2 {
 }
 .task-list-msg--drag:after--add:before {
   content: "\e900";
+}
+.task-list-msg--drag:after--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
 }
 .menu-line {
   margin-bottom: 30px;

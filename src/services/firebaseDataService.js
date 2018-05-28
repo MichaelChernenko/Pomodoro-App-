@@ -45,6 +45,10 @@ export default class DataService {
       })
   }
 
+  signOut() {
+    return firebase.auth().signOut();
+  }
+
   observeUserChange(handler) {
     return firebase.auth().onAuthStateChanged(user => {
         handler(user)

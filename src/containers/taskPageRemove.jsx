@@ -231,7 +231,7 @@ class TaskListPageRemove extends Component {
                 <Header nav={dataTask} />
                 <div className="wrapper sticky-h task-wrapp main-wrapp">
                     <div className="h-cont"><h1 className="task-list-add">Daily Task List</h1>
-                        <button className="add-task-btn"></button>
+                        <button className="add-task-btn hidden"></button>
                     </div>
                     <section className="task-list clearfix" >
                         <ul className="task-list__filter task-list__filter--select clearfix">

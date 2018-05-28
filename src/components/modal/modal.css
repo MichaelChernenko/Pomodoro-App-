@@ -141,6 +141,10 @@ h2 {
 .icon--add:before {
   content: "\e900";
 }
+.icon--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
+}
 /***************************************************
 *               BUTTONS
 ***************************************************/
@@ -247,7 +251,7 @@ h2 {
   animation-fill-mode: forwards;
 }
 .modal-wrap {
-  padding: 15px 40px 55px;
+  padding: 15px 40px 2%;
 }
 @media only screen and (max-width: 1024px) {
   .modal__content {
@@ -305,6 +309,10 @@ h2 {
 .modal-menu__close:before--add:before {
   content: "\e900";
 }
+.modal-menu__close:before--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
+}
 @media only screen and (max-width: 1024px) {
   .modal-menu__close:before {
     font-size: 26px;
@@ -338,6 +346,10 @@ h2 {
 .modal-menu__add:before--add:before {
   content: "\e900";
 }
+.modal-menu__add:before--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
+}
 @media only screen and (max-width: 1024px) {
   .modal-menu__add:before {
     font-size: 26px;
@@ -365,7 +377,7 @@ h2 {
 .modal__item {
   width: 100%;
   list-style: none;
-  margin-bottom: 35px;
+  margin-bottom: 6%;
   border-bottom: 1px solid #8da5b8;
   padding-bottom: 15px;
 }
@@ -594,6 +606,10 @@ h2 {
 .modal-menu__delete:before--add:before {
   content: "\e900";
 }
+.modal-menu__delete:before--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
+}
 @media only screen and (max-width: 1024px) {
   .modal-menu__delete:before {
     font-size: 26px;
@@ -621,6 +637,7 @@ h2 {
 .modal--remove .modal-wrap {
   padding-left: 60px;
   padding-right: 60px;
+  padding-bottom: 55px;
 }
 @media only screen and (max-width: 1024px) {
   .modal--remove .modal-wrap {

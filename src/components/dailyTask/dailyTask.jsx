@@ -3,7 +3,6 @@ import tomatoImage from './../../assets/images/tomato-addv02.svg'
 
 class DailyTask extends Component {
     render() {
-        console.log(this.props)
         return (
             <div className='main-wrapp'>
                 {this.props.mode === 'empty' ?

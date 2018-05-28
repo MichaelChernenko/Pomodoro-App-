@@ -133,11 +133,11 @@ class Modal extends Component {
                             <ul className="modal__content">
                                 <li className="modal__item">
                                     <h3>title</h3>
-                                    <input type="text" id="title" placeholder="Add title here" />
+                                    <input type="text" id="title" placeholder="Add title here" maxLength='50'/>
                                 </li>
                                 <li className="modal__item">
                                     <h3>description</h3>
-                                    <input type="text" id="description" placeholder="Add description here" />
+                                    <input type="text" id="description" placeholder="Add description here" maxLength='100' />
                                 </li>
                                 <li className="modal__item clearfix">
                                     <h3>Category</h3>

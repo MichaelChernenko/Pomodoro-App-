@@ -114,9 +114,7 @@ class TaskListPage extends Component {
             })
         }
 
-        console.log(tasks)
         this.props.getTasks(tasks)
-        console.log(this.props.dailyTasks)
     }
 
     setToDaily(e) {

@@ -41,6 +41,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'icomoon-exit';
+  src: url('assets/fonts/IcoMoon-Free.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 /* common styles */
 /********************************
         COLORS
@@ -184,6 +190,10 @@ h2 {
 }
 .icon--add:before {
   content: "\e900";
+}
+.icon--signOut:before {
+  font-family: 'icomoon-exit' !important;
+  content: "\ea14";
 }
 /***************************************************
 *               BUTTONS
